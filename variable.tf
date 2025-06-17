@@ -12,3 +12,8 @@ variable "public_subnet_2_cidr" {
   description = "public subnet 2 cidr value"
   type = string 
 }
+
+variable "public_subnet_1" {
+  description = "pubsub-1"
+  type = string
+}
