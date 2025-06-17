@@ -47,7 +47,8 @@ resource "aws_instance" "nginx_docker" {
               sudo systemctl enable docker
               sudo systemctl start docker
               sudo usermod -aG docker ec2-user
-              docker run -d -p 80:80 nginx
+              echo "Bayer app from $(hostname -f)" > /home/ec2-user/index.html
+              docker run -d -p 80:80 -v /home/ec2-user/index.html:/usr/share/nginx/html/index.html nginx
               EOF
 
   tags = {
